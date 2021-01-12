@@ -11,11 +11,7 @@ pipeline{
 
 	stages{
 		
-		stage('Code Checkout'){
-			steps{
-				git branch: 'main', url: 'https://github.com/keshav1239/jenkins-jobs'
-			}
-		}
+		
 		
 		stage('Build'){
 			steps{
