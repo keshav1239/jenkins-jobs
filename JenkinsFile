@@ -16,7 +16,7 @@ pipeline{
 		stage('Code Checkout'){
 			steps{
 				echo " Taking checkout of ${params.branch}"
-				git branch: ${params.branch}, url: 'https://github.com/keshav1239/jenkins-jobs'
+				git branch: "${params.branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
 			}
 		}
 		
