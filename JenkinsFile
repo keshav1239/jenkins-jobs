@@ -1,5 +1,5 @@
 currentBuild.displayName="keshav-app-#"+currentBuild.number
-properties([parameters([choice(choices: ['master', 'main'], description: 'select branch to build', name: 'Branch')])])
+properties([parameters([choice(choices: ['master', 'main'], description: 'select branch to build', name: 'branch')])])
 properties([
     parameters([
         extendedChoice( 
@@ -36,9 +36,8 @@ pipeline{
 		
 		stage('Code Checkout'){
 			steps{
-				echo " Taking checkout of ${params.Branch}  ${params.env-id}"
-				echo " Building project for environment: ${params.env-id}"
-				git branch: "${params.Branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
+				echo " Taking checkout of ${params.branch}  "
+				git branch: "${params.branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
 			}
 		}
 		
