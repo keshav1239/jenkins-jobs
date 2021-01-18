@@ -11,7 +11,7 @@ pipeline{
   		buildDiscarder logRotator(daysToKeepStr: '3', numToKeepStr: '2')
 	}
 	parameters {
-		extendedChoice defaultPropertyFile: '/var/lib/jenkins/kk.properties', defaultPropertyKey: 'id', description: 'Select environment', descriptionPropertyValue: '', multiSelectDelimiter: '', name: 'env-id', propertyFile: '/var/lib/jenkins/kk.properties', propertyKey: 'id', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_SINGLE_SELECT', visibleItemCount: 5
+		extendedChoice defaultPropertyFile: '/var/lib/jenkins/kk.properties', defaultPropertyKey: 'id', description: 'Select environment', descriptionPropertyValue: '', multiSelectDelimiter: '', name: 'envr', propertyFile: '/var/lib/jenkins/kk.properties', propertyKey: 'id', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_SINGLE_SELECT', visibleItemCount: 5
 		choice choices: ['master', 'main'], description: 'select branch to build', name: 'branch'
 
 	}
