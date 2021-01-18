@@ -1,5 +1,15 @@
 currentBuild.displayName="keshav-app-#"+currentBuild.number
-properties([parameters([choice(choices: 'master\nmain', description: 'select branch to build', name: 'branch')])])
+properties([
+    parameters([
+        extendedChoice( 
+            name: 'enviroment-id', 
+            defaultValue: '', 
+            description: 'select environment name', 
+            type: 'PT_MULTI_LEVEL_SINGLE_SELECT', 
+            defaultPropertyFile: '/var/lib/jenkins/kk.properties'
+        )
+    ])
+])
 pipeline{
 
 	agent any
