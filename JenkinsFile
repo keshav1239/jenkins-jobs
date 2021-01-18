@@ -1,25 +1,6 @@
 currentBuild.displayName="keshav-app-#"+currentBuild.number
 properties([parameters([choice(choices: ['master', 'main'], description: 'select branch to build', name: 'branch')])])
-properties([
-    parameters([
-        extendedChoice( 
-            name: 'enviroment-id', 
-			defaultPropertyFile: '/var/lib/jenkins/kk.properties', 
-			defaultPropertyKey: 'id',
-			description: 'Select Environment Name', 
-			descriptionPropertyValue: 'Select Environment', 
-			multiSelectDelimiter: ',',
-            defaultValue: 'Select Environment', 
-            propertyFile: '/var/lib/jenkins/kk.properties', 
-			propertyKey: 'id', 
-			quoteValue: false, 
-			saveJSONParameterToFile: false, 
-			type: 'PT_SINGLE_SELECT', 
-			visibleItemCount: 5
-            
-        )
-    ])
-])
+
 
 pipeline{
 
