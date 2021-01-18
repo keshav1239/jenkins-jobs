@@ -16,7 +16,11 @@ properties([
 			type: 'PT_SINGLE_SELECT', 
 			visibleItemCount: 5
             
-        )
+        ),
+		choice(
+	choices: ['master', 'main'], 
+	description: 'select branch to build', 
+	name: 'Branch')
     ])
 ])
 pipeline{
