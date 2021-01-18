@@ -1,4 +1,5 @@
 currentBuild.displayName="keshav-app-#"+currentBuild.number
+properties([parameters([choice(choices: ['master', 'main'], description: 'select branch to build', name: 'Branch')])])
 properties([
     parameters([
         extendedChoice( 
