@@ -1,15 +1,16 @@
 currentBuild.displayName="keshav-app-#"+currentBuild.number
 properties([
-    parameters([
-        extendedChoice( 
-            name: 'enviroment-id', 
-            defaultValue: '', 
-            description: 'select environment name', 
-            type: 'PT_MULTI_LEVEL_SINGLE_SELECT', 
-            defaultPropertyFile: '/var/lib/jenkins/kk.properties'
-        )
-    ])
+    parameters {
+  extendedChoice defaultPropertyFile: '/var/lib/jenkins/kk.properties', 
+  defaultPropertyKey: 'id', 
+  description: 'Select Environment Name', 
+  descriptionPropertyValue: 'Select Environment', multiSelectDelimiter: ',', name: 'environment-id', 
+  propertyFile: '/var/lib/jenkins/kk.properties', propertyKey: 'id', 
+  quoteValue: false, saveJSONParameterToFile: false, 
+  type: 'PT_SINGLE_SELECT', visibleItemCount: 5
+}
 ])
+
 pipeline{
 
 	agent any
