@@ -21,6 +21,7 @@ pipeline{
 		stage('Code Checkout'){
 			steps{
 				echo " Taking checkout of ${params.branch}  ${params.env-id}  "
+				echo " Environment name is ${params.env-id}  "
 				git branch: "${params.branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
 			}
 		}
