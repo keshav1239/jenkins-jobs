@@ -2,7 +2,7 @@ currentBuild.displayName="keshav-app-#"+currentBuild.number
 properties([
     parameters([
         extendedChoice( 
-            name: 'enviroment-id', 
+            name: 'env-id', 
 			defaultPropertyFile: '/var/lib/jenkins/kk.properties', 
 			defaultPropertyKey: 'id',
 			description: 'Select Environment Name', 
@@ -35,6 +35,7 @@ pipeline{
 		stage('Code Checkout'){
 			steps{
 				echo " Taking checkout of ${params.branch}"
+				echo " Building project for environment: ${params.env-id}"
 				git branch: "${params.branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
 			}
 		}
