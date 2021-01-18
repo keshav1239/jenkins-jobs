@@ -1,15 +1,15 @@
 currentBuild.displayName="keshav-app-#"+currentBuild.number
-properties([parameters([choice(choices: ['master', 'main'], description: 'select branch to build', name: 'Branch')])])
 properties([
     parameters([
         extendedChoice( 
-            name: 'env-id', 
+            name: 'enviroment-id', 
 			defaultPropertyFile: '/var/lib/jenkins/kk.properties', 
 			defaultPropertyKey: 'id',
 			description: 'Select Environment Name', 
-			
+			descriptionPropertyValue: 'Select Environment', 
 			multiSelectDelimiter: ',',
-            		propertyFile: '/var/lib/jenkins/kk.properties', 
+            defaultValue: 'Select Environment', 
+            propertyFile: '/var/lib/jenkins/kk.properties', 
 			propertyKey: 'id', 
 			quoteValue: false, 
 			saveJSONParameterToFile: false, 
@@ -17,7 +17,7 @@ properties([
 			visibleItemCount: 5
             
         )
-    ])
+    ],[choice(choices: ['master', 'main'], description: 'select branch to build', name: 'Branch')])
 ])
 
 pipeline{
@@ -35,9 +35,9 @@ pipeline{
 		
 		stage('Code Checkout'){
 			steps{
-				echo " Taking checkout of ${params.branch}"
+				echo " Taking checkout of ${params.Branch}  ${params.env-id}"
 				echo " Building project for environment: ${params.env-id}"
-				git branch: "${params.branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
+				git branch: "${params.Branch}", url: 'https://github.com/keshav1239/jenkins-jobs'
 			}
 		}
 		
