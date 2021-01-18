@@ -8,7 +8,7 @@ properties([
 			description: 'Select Environment Name', 
 			descriptionPropertyValue: 'Select Environment', 
 			multiSelectDelimiter: ',',
-            defaultValue: '', 
+            defaultValue: 'Select Environment', 
             propertyFile: '/var/lib/jenkins/kk.properties', 
 			propertyKey: 'id', 
 			quoteValue: false, 
